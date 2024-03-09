@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friendster-style Image Gallery</title>
+    <title>Image Gallery</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,19 +12,19 @@
             margin: 0;
             padding: 0;
         }
-        
+
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             grid-gap: 20px;
         }
-        
+
         .gallery img {
             width: 100%;
             height: auto;
@@ -31,57 +32,257 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
-        
+
         .gallery img:hover {
             transform: scale(1.05);
         }
-        
+
         h1 {
             text-align: center;
             font-size: 36px;
             color: #333;
             margin-bottom: 20px;
         }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #fff;
+            font-size: 24px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Friendster-style Image Gallery</h1>
+        <h1>Image Gallery</h1>
         <div class="gallery">
             <!-- Images will be added dynamically here -->
+            <img src="01/64/30784610/1_113268136.jpg" onClick="(function(){
+                                
+                window.open('.jpg', '_self');
+                
+            })();return false;" />
+
+            <img src="01/64/30784610/1_147650974.jpg" onClick="(function(){
+                                
+                window.open('.jpg', '_self');
+                
+            })();return false;" />
+
+            
+            <img src="01/64/30784610/1_307371730.jpg" onClick="(function(){
+                                
+                window.open('01/64/30784610/1_307371730.jpg', '_self');
+                
+            })();return false;" />
+
+            
+            <img src="01/64/30784610/1_437618370.jpg" onClick="(function(){
+                                
+                window.open('01/64/30784610/1_437618370.jpg', '_self');
+                
+            })();return false;" />
+
+            
+            <img src="01/64/30784610/1_878511301.jpg" onClick="(function(){
+                                
+                window.open('01/64/30784610/1_878511301.jpg', '_self');
+                
+            })();return false;" />
+
+            
+            <img src="01/64/30784610/1_910959984.jpg" onClick="(function(){
+                                
+                window.open('01/64/30784610/1_910959984.jpg', '_self');
+                
+            })();return false;" />
+
+            
+            <img src="01/64/30784610/1_910959984.jpg" onClick="(function(){
+                                
+                window.open('01/64/30784610/1_910959984.jpg', '_self');
+                
+            })();return false;" />
+
+            
+            <img src="01/64/30784610/1_987403981.jpg" onClick="(function(){
+                                
+                window.open('01/64/30784610/1_987403981.jpg', '_self');
+                
+            })();return false;" />
+
+            
+
+            <img src="35/10/36920153/0_549097218.jpg" onClick="(function(){
+                                
+                window.open('35/10/36920153/0_549097218.jpg', '_self');
+
+            })();return false;" />
+
+            <img src="35/10/36920153/0_690434854.jpg" onClick="(function(){
+                                
+                window.open('35/10/36920153/0_690434854.jpg', '_self');
+
+            })();return false;" />
+
+
+            <img src="35/10/36920153/0_860915606.jpg" onClick="(function(){
+                                
+                window.open('35/10/36920153/0_860915606.jpg', '_self');
+
+            })();return false;" />
+
+
+            <img src="35/10/36920153/0_863789783.jpg" onClick="(function(){
+                                
+                window.open('35/10/36920153/0_863789783.jpg', '_self');
+
+            })();return false;" />
+
+
+
+            <img src="40/08/45798004/1_218694024.jpg" onClick="(function(){
+                                
+                window.open('40/08/45798004/1_218694024.jpg', '_self');
+
+            })();return false;" />
+
+
+
+            <img src="40/08/45798004/1_485296068.jpg" onClick="(function(){
+                                
+                window.open('40/08/45798004/1_485296068.jpg', '_self');
+
+            })();return false;" />
+
+
+
+            <img src="49/98/19988994/1_529745756.jpg" onClick="(function(){
+                                
+                window.open('49/98/19988994/1_529745756.jpg', '_self');
+
+            })();return false;" />
+
+
+
+            <img src="49/98/19988994/1_872455424.jpg" onClick="(function(){
+                                
+                window.open('49/98/19988994/1_872455424.jpg', '_self');
+
+            })();return false;" />
+
+
+
+            <img src="57/42/113522475/2_280571482.jpg" onClick="(function(){
+                                
+                window.open('57/42/113522475/2_280571482.jpg', '_self');
+
+            })();return false;" />
+
+
+
+            <img src="57/42/113522475/2_537803210.jpg" onClick="(function(){
+                                
+                window.open('57/42/113522475/2_537803210.jpg', '_self');
+
+            })();return false;" />
+
+
+            <img src="57/42/113522475/2_651378802.jpg" onClick="(function(){
+                                
+                window.open('57/42/113522475/2_651378802.jpg', '_self');
+
+            })();return false;" />
+
+
+
+            <img src="57/42/113522475/2_891291816.jpg" onClick="(function(){
+                                
+                window.open('57/42/113522475/2_891291816.jpg', '_self');
+
+            })();return false;" />
+
+
+            <img src="" onClick="(function(){
+                                
+                window.open('', '_self');
+
+            })();return false;" />
+
+
+
+            <img src="" onClick="(function(){
+                                
+                window.open('', '_self');
+
+            })();return false;" />
+
+
+            <img src="" onClick="(function(){
+                                
+                window.open('', '_self');
+
+            })();return false;" />
+
+
+
+            <img src="" onClick="(function(){
+                                
+                window.open('', '_self');
+
+            })();return false;" />
+
+
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="">
         </div>
     </div>
 
     <script>
-        // JavaScript to load images from folder and display them
-        window.onload = function() {
-            const galleryDiv = document.querySelector('.gallery');
-            const folderPath = '.'; // Specify the path to your folder containing images
+      
 
-            fetch(folderPath)
-            .then(response => response.text())
-            .then(text => {
-                // Parse the folder HTML content to extract image URLs
-                const parser = new DOMParser();
-                const htmlDoc = parser.parseFromString(text, 'text/html');
-                const imageLinks = Array.from(htmlDoc.querySelectorAll('a')).map(a => a.href);
-                
-                // Filter out non-image files (you can adjust this as per your needs)
-                const imageFiles = imageLinks.filter(link => /\.(jpeg|jpg|png|gif)$/i.test(link));
-
-                // Create image elements and append them to the gallery
-                imageFiles.forEach(imageFile => {
-                    const img = document.createElement('img');
-                    img.src = imageFile;
-                    galleryDiv.appendChild(img);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching images:', error);
-            });
-        };
+        const closeModal = document.querySelector('.close');
+        closeModal.addEventListener('click', function () {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        });
     </script>
+
 </body>
+
 </html>
-
-
