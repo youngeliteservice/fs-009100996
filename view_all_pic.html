@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friendster-style Image Gallery</title>
+    <title>Image Gallery</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,19 +12,19 @@
             margin: 0;
             padding: 0;
         }
-        
+
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             grid-gap: 20px;
         }
-        
+
         .gallery img {
             width: 100%;
             height: auto;
@@ -31,57 +32,103 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
-        
+
         .gallery img:hover {
             transform: scale(1.05);
         }
-        
+
         h1 {
             text-align: center;
             font-size: 36px;
             color: #333;
             margin-bottom: 20px;
         }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #fff;
+            font-size: 24px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Friendster-style Image Gallery</h1>
+        <h1>Image Gallery</h1>
         <div class="gallery">
             <!-- Images will be added dynamically here -->
+       
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="">
         </div>
     </div>
 
     <script>
-        // JavaScript to load images from folder and display them
-        window.onload = function() {
+
+        (async () => {
+
             const galleryDiv = document.querySelector('.gallery');
-            const folderPath = 'photos/01/64/30784610/'; // Specify the path to your folder containing images
 
-            fetch(folderPath)
-            .then(response => response.text())
-            .then(text => {
-                // Parse the folder HTML content to extract image URLs
-                const parser = new DOMParser();
-                const htmlDoc = parser.parseFromString(text, 'text/html');
-                const imageLinks = Array.from(htmlDoc.querySelectorAll('a')).map(a => a.href);
-                
-                // Filter out non-image files (you can adjust this as per your needs)
-                const imageFiles = imageLinks.filter(link => /\.(jpeg|jpg|png|gif)$/i.test(link));
+            const response = await fetch('https://api.github.com/repositories/768688667/contents/photos');
+            const data = await response.json();
 
-                // Create image elements and append them to the gallery
-                imageFiles.forEach(imageFile => {
-                    const img = document.createElement('img');
-                    img.src = imageFile;
-                    galleryDiv.appendChild(img);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching images:', error);
-            });
-        };
+            for (let file of data) {
+                const img = document.createElement('img');
+                img.src = file.download_url;
+                img.onclick = function () {
+                    window.open(file.download_url, '_self');
+                };
+                galleryDiv.appendChild(img);
+            }
+
+
+        })()
+
+
+        
+
+        const closeModal = document.querySelector('.close');
+        closeModal.addEventListener('click', function () {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        });
     </script>
+
 </body>
+
 </html>
-
-
